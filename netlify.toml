@@ -1,12 +1,10 @@
 [build]
-  publish = "."
-  command = ""
+  base = "."
+  command = "npm run build"
+  publish = ".next"
 
-[context.production.environment]
-  NODE_VERSION = "20"
+[functions]
+  directory = "netlify/functions"
 
-[[headers]]
-  for = "/**"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
