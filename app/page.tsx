@@ -1,13 +1,11 @@
-import './globals.css';
+const features = [
+  { title: 'Smart Builder', description: 'Edit profile, add content blocks, publish instantly, and reorder widgets.' },
+  { title: 'Custom Domain', description: 'Own a custom brand presence through your own domain and URL.' },
+  { title: 'Lead Capture', description: 'Collect emails and convert visitors into loyal followers or customers.' },
+  { title: 'Analytics', description: 'Track views, clicks, and conversion trends with an overview dashboard.' }
+];
 
 export default function HomePage() {
-  const features = [
-    { title: 'Smart Builder', description: 'Build blocks, reorder sections, and publish within minutes.' },
-    { title: 'Custom Domain', description: 'Use your own domain to strengthen your personal brand.' },
-    { title: 'Lead Capture', description: 'Collect emails and convert visitors into subscribers.' },
-    { title: 'Analytics', description: 'Track visits, referrals, and clicks from one dashboard.' }
-  ];
-
   return (
     <main>
       <header className="site-header">
@@ -29,7 +27,7 @@ export default function HomePage() {
           <span className="badge">Creator SaaS Platform</span>
           <h1>Turn your profile into a high-converting digital home.</h1>
           <p>
-            Buat halaman bio modern, tampilkan konten, kelola domain, dan hasilkan leads dari satu dashboard yang simpel dan cepat.
+            Bangun halaman bio yang modern, profesional, dan siap menghasilkan leads, trafik, dan monetisasi dari satu tempat.
           </p>
           <div className="hero-actions">
             <a href="/access" className="btn btn-primary">Mulai Gratis</a>
@@ -47,12 +45,12 @@ export default function HomePage() {
             <div className="phone-header">MikroBiolink</div>
             <div className="avatar" />
             <h3>Jane Creator</h3>
-            <p>Helping creators grow with product, content, and community.</p>
+            <p>Product designer, content creator, and digital storyteller.</p>
             <div className="links-list">
               <button>Portfolio</button>
               <button>Shop</button>
               <button>Newsletter</button>
-              <button>Youtube</button>
+              <button>YouTube</button>
             </div>
           </div>
         </div>
@@ -61,7 +59,7 @@ export default function HomePage() {
       <section id="features" className="section container">
         <div className="section-heading">
           <span className="eyebrow">Fitur</span>
-          <h2>Semua yang dibutuhkan creator untuk berkembang</h2>
+          <h2>Semua yang dibutuhkan creator untuk berkembang.</h2>
         </div>
         <div className="feature-grid">
           {features.map((feature) => (
@@ -77,7 +75,7 @@ export default function HomePage() {
         <div className="container split-layout">
           <div>
             <span className="eyebrow">Dashboard</span>
-            <h2>Dashboard untuk mengelola isi profil dan audiens</h2>
+            <h2>Dashboard untuk mengelola isi profil dan audiens.</h2>
             <ul className="check-list">
               <li>Editor blok dengan urutan drag-and-drop</li>
               <li>Preview mobile dan desktop</li>
@@ -106,7 +104,7 @@ export default function HomePage() {
       <section id="how" className="section container">
         <div className="section-heading">
           <span className="eyebrow">Cara Kerja</span>
-          <h2>Mulai dari setup sampai growth dalam menit</h2>
+          <h2>Mulai dari setup sampai growth dalam menit.</h2>
         </div>
         <div className="steps-grid">
           <div className="step-card">
@@ -117,12 +115,12 @@ export default function HomePage() {
           <div className="step-card">
             <span>02</span>
             <h3>Kustomisasi</h3>
-            <p>Tambah profil, blok konten, foto, tema, dan media.</p>
+            <p>Tambah profil, blok konten, foto, tema, dan channel media.</p>
           </div>
           <div className="step-card">
             <span>03</span>
             <h3>Publikasikan</h3>
-            <p>Bagikan link profil Anda ke audiens dan media sosial.</p>
+            <p>Bagikan link profil ke audiens, media sosial, dan kampanye.</p>
           </div>
         </div>
       </section>
@@ -130,9 +128,9 @@ export default function HomePage() {
       <section id="domain" className="section container domain-section">
         <div>
           <span className="eyebrow">Domain</span>
-          <h2>Miliki brand yang konsisten di setiap link</h2>
+          <h2>Miliki brand yang konsisten di setiap link.</h2>
           <p>
-            Hubungkan domain khusus untuk menampilkan profil Anda dengan identitas yang lebih profesional dan terukur.
+            Hubungkan domain khusus untuk profil Anda, agar setiap link terlihat lebih profesional, kuat, dan mudah diingat.
           </p>
         </div>
       </section>

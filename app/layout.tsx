@@ -1,22 +1,20 @@
-import type { Metadata } from 'next';
 import './globals.css';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'MikroBiolink',
-  description: 'Link-in-bio SaaS platform for creators and brands.',
+  description: 'Link-in-bio SaaS platform for creators, brands, and businesses.',
   metadataBase: new URL('https://example.com'),
   openGraph: {
     title: 'MikroBiolink',
-    description: 'Build your digital identity with one beautiful link-in-bio page.',
+    description: 'Build a powerful digital home with content, leads, analytics, and custom domains.',
     url: 'https://example.com',
     siteName: 'MikroBiolink',
-    locale: 'id_ID',
     type: 'website'
   },
   twitter: {
     card: 'summary_large_image',
     title: 'MikroBiolink',
-    description: 'Creators, brands, and businesses build modern link-in-bio experiences.'
+    description: 'A creator-first link-in-bio platform.'
   }
 };
 
