@@ -1,22 +1,76 @@
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
-  const titles: Record<string, string> = {
-    'cara-membuat-bio-link-yang-menjual': 'Cara Membuat Bio Link yang Menjual',
-    '7-tema-link-in-bio': '7 Tema Link-in-Bio yang Memikat Audiens',
-    'strategi-lead-capture-creator': 'Strategi Lead Capture untuk Creator'
-  };
+import { notFound } from 'next/navigation';
+import { getBlogPostBySlug } from '@/lib/blog';
 
-  const title = titles[params.slug] || 'Blog Article';
+export default function BlogDetailPage({ params }: { params: { slug: string } }) {
+  const post = getBlogPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <main className="container blog-detail-shell">
-      <h1>{title}</h1>
-      <p>
-        Artikel ini adalah contoh blog yang bisa dikembangkan menjadi halaman editorial lengkap dengan metadata SEO, author, tanggal, dan CTA.
-      </p>
-      <div className="feature-card">
-        <h3>Ringkasan</h3>
-        <p>Bio link yang baik harus simpel, cepat dimengerti, dan langsung mendorong aksi conversion seperti klik, follow, atau subscribe.</p>
-      </div>
+      <article className="blog-article">
+        <header className="article-header">
+          <span className="mini-tag">{post.category}</span>
+          <h1>{post.title}</h1>
+          <div className="meta-row">
+            <span>{post.author}</span>
+            <span>{post.publishedAt}</span>
+            <span>{post.minutesRead} min read</span>
+          </div>
+          <img src={post.coverImage} alt={post.title} className="article-cover" />
+        </header>
+
+        <div className="article-layout">
+          <div className="article-content">
+            {post.content.map((paragraph, index) => (
+              <p key={`${post.slug}-${index}`}>{paragraph}</p>
+            ))}
+
+            <div className="section-box">
+              <h3>Internal Links</h3>
+              <ul>
+                {post.internalLinks.map((link) => (
+                  <li key={link}><a href={link}>{link}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="section-box">
+              <h3>External References</h3>
+              <ul>
+                {post.externalLinks.map((link) => (
+                  <li key={link}><a href={link} target="_blank" rel="noreferrer">{link}</a></li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="ads-slot">Google AdSense Slot 728x90</div>
+            <div className="ads-slot small">Google AdSense Slot 300x250</div>
+          </div>
+
+          <aside className="sidebar-article">
+            <div className="section-box">
+              <h3>Popular Posts</h3>
+              <ul className="compact-list">
+                <li><a href="/blog">Blog Home</a></li>
+                <li><a href="/archive">Archive</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div className="section-box">
+              <h3>Tags</h3>
+              <div className="tag-list">
+                {post.tags.map((tag) => (
+                  <a key={tag} href={`/tag/${tag}`} className="tag-pill">#{tag}</a>
+                ))}
+              </div>
+            </div>
+          </aside>
+        </div>
+      </article>
     </main>
   );
 }

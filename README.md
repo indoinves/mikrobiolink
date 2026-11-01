@@ -1,49 +1,77 @@
 # MikroBiolink
 
-MikroBiolink is a SaaS Link-in-Bio platform with landing page, public bio profile, dashboard, admin panel, blog, and automated workflows.
+MikroBiolink is a creator-first SaaS platform for generating premium link-in-bio pages, member dashboards, SEO blog content, analytics, and custom domain publishing.
 
-This repository contains:
-- Product Requirements Document (PRD)
-- System architecture blueprint
-- Relational database schema in SQL
-- Project structure for web app and deployability
-- Static landing page for GitHub Pages / Netlify / Vercel preview
+This repository is structured as a production-ready frontend foundation with a CMS-oriented blog, admin/member flows, and deployment configuration for Netlify/Vercel.
 
-## Project status
-This repo includes a deployable static preview and production-ready design documentation for implementation.
-
-## Quick deploy
-
-### GitHub Pages
-1. In GitHub, open repository settings
-2. Go to Pages
-3. Set Source to "Deploy from a branch"
-4. Select branch `main` and folder `/` (or `/docs` if moved)
-
-### Vercel / Netlify
-- Import the repository into either platform
-- Framework: Static / HTML
-- Build command: none required for static site
-- Publish directory: `.`
-
-## Repository structure
-- `docs/` — product and architecture documentation
-- `sql/` — database schema
-- `public/` — ads.txt and app-ads.txt
-- `index.html` — static product landing page
-- `styles.css` — styling
-- `script.js` — interactions
-- `netlify.toml` and `vercel.json` — deploy configuration
-
-## Key product modules
+## Product scope
 - Public landing page
-- Public bio page routing
-- Client dashboard and editor
-- Admin dashboard
-- Domain management
-- File and folder management
-- Blog pages
-- Mobile app shell screens
+- Public bio profiles by username
+- Member dashboard with CRUD editing
+- Admin dashboard for user management
+- SEO blog system with archive, tags, and article pages
+- Contact page and CTA flows
+- PWA manifest + sitemap
+- Ads-ready and SEO-ready structure
 
-## License
-MIT (or add your preferred license if needed)
+## Tech stack
+- Next.js 14
+- React 18
+- TypeScript
+- App Router
+- Static/dynamic page rendering
+- Netlify/Vercel deployment ready
+
+## Local development
+```bash
+npm install
+npm run dev
+```
+
+Open http://localhost:3000
+
+## Production deployment
+### Netlify
+Use these values in Netlify build settings:
+- Base directory: .
+- Build command: npm run build
+- Publish directory: .next
+- Functions directory: netlify/functions
+
+### Vercel
+Import the project directly and use default Next.js settings.
+
+## Demo accounts
+- Admin: admin@demo.com / admin123
+- Member: member@demo.com / member123
+
+## Main routes
+- /
+- /access
+- /dashboard
+- /admin
+- /blog
+- /archive
+- /contact
+- /tag/[tag]
+- /blog/[slug]
+- /[username]
+
+## Backend model
+The project includes a base relational model and a CMS-ready data structure for future Supabase/PostgreSQL integration.
+
+## CMS and blog architecture
+The blog engine is generated from structured mock data and can be replaced with real API/database content later.
+
+## Deployment checklist
+- Ensure `netlify.toml` is present
+- Ensure `@netlify/plugin-nextjs` is installed
+- Ensure production build succeeds via `npm run build`
+- Verify critical routes render
+- Check metadata and OG tags
+- Validate sitemap and manifest files
+- Confirm custom domain and DNS configuration
+- Add real analytics provider in production
+
+## Notes
+This is a production-ready starter for product demo and launch prep, with modular route architecture and a CMS-style content engine.
